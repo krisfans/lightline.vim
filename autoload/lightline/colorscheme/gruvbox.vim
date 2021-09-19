@@ -6,26 +6,18 @@
 " Last Modified: 20 Sep 2017
 " -----------------------------------------------------------------------------
 
-function! s:getGruvColor(group)
-  let guiColor = synIDattr(hlID(a:group), "fg", "gui")
-  let termColor = synIDattr(hlID(a:group), "fg", "cterm")
-  return [ guiColor, termColor ]
-endfunction
+  let s:bg0  = ['#282828', 235]
+  let s:bg1  = ['#3c3836', 237]
+  let s:bg2  = ['#504945', 239]
+  let s:bg4  = ['#7c6f64', 243]
+  let s:fg1  = ['#ebdbb2', 223]
+  let s:fg4  = ['#a89984', 246]
 
-if exists('g:lightline')
-
-  let s:bg0  = s:getGruvColor('GruvboxBg0')
-  let s:bg1  = s:getGruvColor('GruvboxBg1')
-  let s:bg2  = s:getGruvColor('GruvboxBg2')
-  let s:bg4  = s:getGruvColor('GruvboxBg4')
-  let s:fg1  = s:getGruvColor('GruvboxFg1')
-  let s:fg4  = s:getGruvColor('GruvboxFg4')
-
-  let s:yellow = s:getGruvColor('GruvboxYellow')
-  let s:blue   = s:getGruvColor('GruvboxBlue')
-  let s:aqua   = s:getGruvColor('GruvboxAqua')
-  let s:orange = s:getGruvColor('GruvboxOrange')
-  let s:green = s:getGruvColor('GruvboxGreen')
+  let s:yellow = ['#fabd2f', 214]
+  let s:blue   = ['#83a598', 109]
+  let s:aqua   = ['#8ec07c', 108]
+  let s:orange = ['#fe8019', 208]
+  let s:green  = ['#b8bb26', 142]
 
   let s:p = {'normal':{}, 'inactive':{}, 'insert':{}, 'replace':{}, 'visual':{}, 'tabline':{}, 'terminal':{}}
   let s:p.normal.left = [ [ s:bg0, s:fg4, 'bold' ], [ s:fg4, s:bg2 ] ]
@@ -54,4 +46,4 @@ if exists('g:lightline')
   let s:p.normal.warning = [ [ s:bg2, s:yellow ] ]
 
   let g:lightline#colorscheme#gruvbox#palette = lightline#colorscheme#flatten(s:p)
-endif
+
